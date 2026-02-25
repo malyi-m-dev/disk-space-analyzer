@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="core_platform_windows-desktop">
+    <output-path>$PROJECT_DIR$/core_platform_windows/build/libs</output-path>
+    <root id="archive" name="core_platform_windows-desktop.jar" />
+  </artifact>
+</component>

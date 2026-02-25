@@ -1,0 +1,18 @@
+# Project exclude paths
+/.gradle/
+/app_desktop/build/
+/build/
+/core_base_feature/build/
+/core_base_feature/build/classes/kotlin/desktop/main/
+/core_platform_windows/build/
+/core_platform_windows/build/classes/kotlin/desktop/main/
+/core_utils/build/
+/core_utils/build/classes/kotlin/desktop/main/
+/data_filesystem/api/build/
+/data_filesystem/api/build/classes/kotlin/desktop/main/
+/data_filesystem/impl/build/
+/data_filesystem/impl/build/classes/kotlin/desktop/main/
+/feature_disk_analyzer/api/build/
+/feature_disk_analyzer/api/build/classes/kotlin/desktop/main/
+/feature_disk_analyzer/impl/build/
+/feature_disk_analyzer/impl/build/classes/kotlin/desktop/main/
