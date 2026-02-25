@@ -51,35 +51,24 @@ internal fun DiskAnalyzerResultsContent(
             Box(Modifier.fillMaxSize().padding(24.dp)) { Text("Загрузка результата...") }
             return@Box
         }
-
         Row(
             modifier = Modifier.fillMaxSize().padding(16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             Card(modifier = Modifier.weight(1f).fillMaxHeight()) {
                 Column(modifier = Modifier.fillMaxSize().padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
-                        Button(
-                            onClick = onNavigateBackClicked,
-                            enabled = state.canNavigateBack,
-                        ) { Text("←") }
-                        Button(
-                            onClick = onNavigateForwardClicked,
-                            enabled = state.canNavigateForward,
-                        ) { Text("→") }
-                        Button(
-                            onClick = onNavigateUpClicked,
-                            enabled = state.canNavigateUp,
-                        ) { Text("↑") }
-                        Text(
-                            text = "Крупные файлы",
-                            style = MaterialTheme.typography.titleLarge,
-                        )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
                         Button(onClick = onRescanClicked) { Text("Рескан") }
-                        Button(onClick = onBackToSetupClicked) { Text("На старт") }
+                        Button(onClick = onBackToSetupClicked) { Text("Новое сканирование") }
                     }
                     Text("Проблем при сканировании: ${state.issuesCount}")
-                    state.statusMessage?.let { Text(it, color = MaterialTheme.colorScheme.primary) }
+                    Text(
+                        text = "Крупные файлы:",
+                        style = MaterialTheme.typography.titleLarge,
+                    )
                     if (state.topFiles.isEmpty()) {
                         Text("Нет файлов")
                     } else {
@@ -110,6 +99,22 @@ internal fun DiskAnalyzerResultsContent(
                                 modifier = Modifier.clickable { onBreadcrumbClicked(crumb) },
                             )
                         }
+                    }
+                }
+                Card(modifier = Modifier.fillMaxWidth()) {
+                    Row(modifier = Modifier.padding(8.dp).fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                        Button(
+                            onClick = onNavigateBackClicked,
+                            enabled = state.canNavigateBack,
+                        ) { Text("←") }
+                        Button(
+                            onClick = onNavigateForwardClicked,
+                            enabled = state.canNavigateForward,
+                        ) { Text("→") }
+                        Button(
+                            onClick = onNavigateUpClicked,
+                            enabled = state.canNavigateUp,
+                        ) { Text("↑") }
                     }
                 }
                 Card(modifier = Modifier.fillMaxWidth().height(250.dp)) {
